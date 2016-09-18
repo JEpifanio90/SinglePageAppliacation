@@ -12,10 +12,10 @@
    <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
 
-         <div class="form-group">
+         <div class="form-group" required>
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control"  ng-model="usrInput" required>
+             class="form-control"  ng-model="usrInput">
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="countItems(usrInput)">Check If Too Much</button>
@@ -31,7 +31,7 @@
              </div>
 
              <div ng-show="showErrorMessage">
-                 <label>¡You have a empty value, bro!</label>
+                 <label>¡Data is required without empty fields!</label>
              </div>
          </div>
    </div>
