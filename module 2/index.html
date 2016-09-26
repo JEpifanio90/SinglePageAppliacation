@@ -44,14 +44,14 @@
        <li ng-repeat="item in alreadyCtrl.alreadyBoughtItems">Bought {{item.quantity}} {{item.itemName}}</li>
      </ul>
      {{alreadyCtrl.itemsInList}}
-     <div class="emptyMessage" ng-if ="alreadyCtrl.itemsInList == 0">Nothing bought yet {{alreadyCtrl.showMessage}}.</div>
+     <div class="emptyMessage" ng-hide ="alreadyCtrl.itemsInList">Nothing bought yet {{alreadyCtrl.showMessage}}.</div>
     </div>
   </div>
 </div>
 <script src="angular.js"></script>
-<script src="/controllers/toBuyShopping.controller.js"></script>
-<script src="/controllers/alreadyBoughtShopping.controller.js"></script>
-<script src="/services/itemsList.service.js"></script>
+<script src="toBuyShopping.controller.js"></script>
+<script src="alreadyBoughtShopping.controller.js"></script>
+<script src="itemsList.service.js"></script>
 
 </body>
 </html>
