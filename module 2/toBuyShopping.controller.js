@@ -13,15 +13,12 @@
   {
     var buyListScope = this;
     buyListScope.toBuyItems = ShoppingListCheckOffService.getTBItems();
-    buyListScope.toBuyItemsLeft = buyListScope.toBuyItems.length;
-    buyListScope.showMessage = false;
 
     buyListScope.addItem = function(itemIndex)
     {
        if (!ShoppingListCheckOffService.existItemInABItems(itemIndex))
        {
          ShoppingListCheckOffService.addItemToABItems(itemIndex);
-         buyListScope.showMessage = ShoppingListCheckOffService.showToBuyMessage();
        }
     };
 

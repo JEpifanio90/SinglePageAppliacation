@@ -44,18 +44,6 @@
       return false;
     };
 
-    serviceScope.showToBuyMessage = function()
-    {
-      if (0 >= serviceScope.toBuyItems.length)
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
-    }
-
     ////////////
 
     //Set's and Get's
