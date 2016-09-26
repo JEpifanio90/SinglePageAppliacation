@@ -16,14 +16,15 @@
     serviceScope.addItemToABItems = function(itemIndex)
     {
       serviceScope.alreadyBoughtItems.push(serviceScope.toBuyItems[itemIndex]);
+      serviceScope.toBuyItems.splice(itemIndex,1);
     };
     ////////////
 
     //remove
-    serviceScope.removeItemFromTBItems = function(itemIndex)
+    serviceScope.removeItemFromABList = function(itemIndex)
     {
-      serviceScope.toBuyItems.splice(itemIndex,1);
-      //remove serviceScope.toBuyItems[itemIndex];
+      serviceScope.toBuyItems.push(serviceScope.alreadyBoughtItems[itemIndex]);
+      serviceScope.alreadyBoughtItems.splice(itemIndex,1);
     };
     ////////////
 

@@ -21,7 +21,6 @@
        if (!ShoppingListCheckOffService.existItemInABItems(itemIndex))
        {
          ShoppingListCheckOffService.addItemToABItems(itemIndex);
-         ShoppingListCheckOffService.removeItemFromTBItems(itemIndex);
          buyListScope.showMessage = ShoppingListCheckOffService.showToBuyMessage();
        }
     };

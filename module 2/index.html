@@ -41,10 +41,9 @@
     <div class="col-md-6" ng-controller="AlreadyBoughtShoppingController as alreadyCtrl">
      <h2>Already Bought:</h2>
      <ul>
-       <li ng-repeat="item in alreadyCtrl.alreadyBoughtItems">Bought {{item.quantity}} {{item.itemName}}</li>
+       <li ng-repeat="item in alreadyCtrl.alreadyBoughtItems">Bought {{item.quantity}} {{item.itemName}} <button class="btn btn-default" ng-click="alreadyCtrl.removeItem($index)"><span class="glyphicon glyphicon-remove"></span> Remove</button></li>
      </ul>
-     {{alreadyCtrl.itemsInList}}
-     <div class="emptyMessage" ng-hide ="alreadyCtrl.itemsInList">Nothing bought yet {{alreadyCtrl.showMessage}}.</div>
+     <div class="emptyMessage" ng-show="alreadyCtrl.itemsInList.length == 0" >Nothing bought yet.</div>
     </div>
   </div>
 </div>

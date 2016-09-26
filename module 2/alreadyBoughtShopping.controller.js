@@ -11,5 +11,9 @@
     boughtListScope.alreadyBoughtItems = ShoppingListCheckOffService.getABItems();
     boughtListScope.itemsInList = boughtListScope.alreadyBoughtItems.length;
 
+    boughtListScope.removeItem = function(itemIndex)
+    {
+      ShoppingListCheckOffService.removeItemFromABList(itemIndex);
+    }
   }
 })();
