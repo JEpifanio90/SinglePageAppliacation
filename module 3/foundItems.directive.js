@@ -11,7 +11,7 @@
     {
         return {
             restrict: 'E',
-            templateUrl: 'loader/itemsloaderindicator.template.html',
+            templateUrl: 'itemsloaderindicator.template.html',
             scope: {
                 foundItems : '<',
                 onRemove : '=?'
