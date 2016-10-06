@@ -16,6 +16,8 @@
                 foundItems : '<',
                 onRemove : '=?'
             },
+            controller: 'FoundCtrl',
+            controllerAs: 'foundCtrl'
         };
     }
 })();

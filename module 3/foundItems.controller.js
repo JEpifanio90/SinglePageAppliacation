@@ -6,12 +6,13 @@
     angular.module('NarrowItDownApp')
         .controller('FoundCtrl', FoundFunction);
 
-    FoundFunction.$inject = ['$log'];
-    function FoundFunction($log)
+    FoundFunction.$inject = ['MenuSearchService'];
+    function FoundFunction(MenuSearchService)
     {
         var FoundScope = this;
-        $log.log(FoundScope.foundItems);
-        $log.log(FoundScope.onRemove);
+        FoundScope.removeItem = function(id)
+        {
+            MenuSearchService.deleteFromArray(id);
+        }
     }
-
 })();

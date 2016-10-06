@@ -35,6 +35,20 @@
             {
                 return menuSearchScope.responseArray;
             }
+            else
+            {
+                return [];
+            }
+        };
+
+        menuSearchScope.deleteFromArray = function(id)
+        {
+            menuSearchScope.responseArray.splice(id, 1);
+        };
+
+        menuSearchScope.clearArray = function()
+        {
+            menuSearchScope.responseArray = [];
         };
     }
 

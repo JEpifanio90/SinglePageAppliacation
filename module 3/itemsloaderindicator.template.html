@@ -1,10 +1,22 @@
 <div>
-    </br>
-    <h2>Possible Matches</h2>
-    </br>
-    <ul ng-repeat="something in foundItems">
-        <li id="{{item.id}}" >{{something.name}} <span>{{something.description}}</span></li>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>¿Don't want this?</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="something in foundItems">
+            <tr>
+                <td>{{something.name}}</td>
+                <td>{{something.description}}</td>
+                <td>{{something.price_large}}</td>
+                <td><button class="btn btn-danger" ng-click="foundCtrl.removeItem(item.id)">I don't want this</button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 
