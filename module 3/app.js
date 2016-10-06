@@ -11,10 +11,17 @@
     function NarrowItFunction(MenuSearchService, $log)
     {
         var NarrowItScope = this;
-        NarrowItScope.showMessage = true;
+        NarrowItScope.found = [];
         NarrowItScope.narrowIt = function()
         {
-            NarrowItScope.found = MenuSearchService.getMatchedMenuItems(NarrowItScope.userInput);
+            if(NarrowItScope.userInput)
+            {
+                NarrowItScope.found = MenuSearchService.getMatchedMenuItems(NarrowItScope.userInput);
+            }
+            else
+            {
+                NarrowItScope.found = [];
+            }
         };
     }
 })();

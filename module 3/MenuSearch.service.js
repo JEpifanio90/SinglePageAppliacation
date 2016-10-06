@@ -14,31 +14,9 @@
         menuSearchScope.responseArray = [];
         menuSearchScope.getMatchedMenuItems = function(searchTerm)
         {
-            // Simple GET request example:
-            $http({
-                method: 'GET',
-                url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
-            }).then(function successCallback(response) {
-                var listLength = response.data.menu_items.length;
-                for(var i=0; i<listLength; i++)
-                {
-                    var menuItem = response.data.menu_items[i];
-                    if (menuItem.name.includes(searchTerm) || menuItem.description.includes(searchTerm))
-                    {
-                        menuSearchScope.responseArray.push(menuItem);
-                    }
-                }
-            }, function errorCallback(response) {
-                $log.log(response);
-            });
-            if (menuSearchScope.responseArray.length > 0 )
-            {
-                return menuSearchScope.responseArray;
-            }
-            else
-            {
-                return [];
-            }
+            var response = $http({ method: 'GET', url: 'https://davids-restaurant.herokuapp.com/menu_items.json'});
+            menuSearchScope.responseArray = makeCallToApi(response,searchTerm);
+            return menuSearchScope.responseArray;
         };
 
         menuSearchScope.deleteFromArray = function(id)
@@ -52,5 +30,22 @@
         };
     }
 
+
+    function makeCallToApi(promise, searchTerm)
+    {
+        var arrayToReturn = [];
+        promise.then(function successCallback(response) {
+            var listLength = response.data.menu_items.length;
+            for(var i=0; i<listLength; i++)
+            {
+                var menuItem = response.data.menu_items[i];
+                if (menuItem.name.includes(searchTerm) || menuItem.description.includes(searchTerm))
+                {
+                    arrayToReturn.push(menuItem);
+                }
+            }
+        }).catch(function errorCallback(response) { $log.log(response); });
+        return arrayToReturn;
+    }
 
 })();
