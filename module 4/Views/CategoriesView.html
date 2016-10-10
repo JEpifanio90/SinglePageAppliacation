@@ -1,0 +1,21 @@
+<h1>{{categoryCtrl.message}}</h1>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>ShortName</th>
+            <th>Special Instructions</th>
+            <th>Go to this Category</th>
+        </tr>
+        </thead>
+        <tbody ng-repeat="category in categoryCtrl.categories">
+        <tr>
+            <td>{{category.name}}</td>
+            <td>{{category.short_name}}</td>
+            <td>{{category.special_instructions}}</td>
+            <td><button class="btn btn-success" >$index</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
