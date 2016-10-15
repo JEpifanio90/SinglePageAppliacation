@@ -1,11 +1,15 @@
 /**
  * Created by jose- on 09/10/2016.
  */
-(function(){
+(function () {
     'use strict';
 
-    angular.module('data')
+    angular.module('MenuApp')
         .component('items', {
-            templateUrl: '../Views/ItemsView.html'
+            templateUrl: 'ItemsView.html',
+            bindings: {
+                items: '<'
+            }
         });
+
 })();

@@ -1,4 +1,4 @@
-<h1>{{categoryCtrl.message}}</h1>
+<h1>{{$ctrl.message}}</h1>
 <div>
     <table class="table">
         <thead>
@@ -9,12 +9,12 @@
             <th>Go to this Category</th>
         </tr>
         </thead>
-        <tbody ng-repeat="category in categoryCtrl.categories">
+        <tbody ng-repeat="category in ctrl.categoryItems">
         <tr>
             <td>{{category.name}}</td>
             <td>{{category.short_name}}</td>
             <td>{{category.special_instructions}}</td>
-            <td><button class="btn btn-success" >$index</button></td>
+            <td><a class="btn btn-success" ui-sref="items({categoryid : category.short_name})">Recipe</a></td>
         </tr>
         </tbody>
     </table>

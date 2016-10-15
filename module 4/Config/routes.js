@@ -14,10 +14,10 @@
         var categoriesState = {
             name: 'categories',
             url: '/categories',
-            templateUrl: '../Views/CategoriesView.html',
-            controller: 'CategoriesCtrl as categoryCtrl',
+            templateUrl: '../CategoriesView.html',
+            controller: 'CategoryController as ctrl',
             resolve: {
-                items: ['MenuDataService', function (MenuDataService) {
+                categoryList: ['MenuDataService', function (MenuDataService) {
                     return MenuDataService.getAllCategories();
                 }]
             }
@@ -25,14 +25,20 @@
 
         var itemsState = {
             name: 'items',
-            url: '/items',
-            templateUrl: '../Views/ItemsView.html'
+            url: '/items/{categoryid}',
+            templateUrl: '../ItemsView.html',
+            controller: "ItemsController as itemDetail",
+            resolve: {
+                itemList: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+                    return MenuDataService.getItemsForCategory($stateParams.categoryid);
+                }]
+            }
         };
 
         var homeState = {
             name: 'home',
             url: '/',
-            templateUrl: '../Views/homeView.html'
+            templateUrl: '../homeView.html'
         }
 
         $stateProvider.state(categoriesState);

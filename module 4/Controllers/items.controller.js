@@ -1,14 +1,19 @@
 /**
  * Created by jose- on 09/10/2016.
  */
-(function () {
+(function() {
     'use strict';
 
     angular.module('MenuApp')
-        .controller('ItemsCtrl', ItemsFunction);
+        .controller('ItemsController', ItemsController);
 
-    function ItemsFunction() {
 
+    ItemsController.$inject = ['MenuDataService', 'itemList'];
+
+    function ItemsController(MenuDataService, itemList) {
+        console.log("ItemsController: entering, itemlist=", itemList);
+        var self = this;
+        self.itemlist = itemList;
     }
 
 })();
