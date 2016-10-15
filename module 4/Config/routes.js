@@ -14,7 +14,7 @@
         var categoriesState = {
             name: 'categories',
             url: '/categories',
-            templateUrl: '../CategoriesView.html',
+            templateUrl: 'CategoriesView.html',
             controller: 'CategoryController as ctrl',
             resolve: {
                 categoryList: ['MenuDataService', function (MenuDataService) {
@@ -26,7 +26,7 @@
         var itemsState = {
             name: 'items',
             url: '/items/{categoryid}',
-            templateUrl: '../ItemsView.html',
+            templateUrl: 'ItemsView.html',
             controller: "ItemsController as itemDetail",
             resolve: {
                 itemList: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
@@ -38,7 +38,7 @@
         var homeState = {
             name: 'home',
             url: '/',
-            templateUrl: '../homeView.html'
+            templateUrl: 'homeView.html'
         }
 
         $stateProvider.state(categoriesState);
