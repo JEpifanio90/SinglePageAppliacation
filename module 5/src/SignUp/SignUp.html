@@ -1,0 +1,49 @@
+<div>
+    <h2>Sign up!</h2>
+    <form name="userForm" ng-submit="userForm.$valid && signCtrl.saveUsrData()" novalidate>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" data-error="Required field" ng-model="signCtrl.name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="lastName" class="form-control" data-error="Required field" ng-model="signCtrl.lastName" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" data-error="Required field" ng-model="signCtrl.email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Cellphone</label>
+            <input type="number" name="cellphone" class="form-control" data-error="Required field" ng-model="signCtrl.cellphone" ng-maxlength="10"required>
+        </div>
+
+        <div class="form-group">
+            <label>Favorite Dish</label>
+            <input type="text" name="favDish" class="form-control" ng-model="signCtrl.favDish">
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button ng-show="userForm.$valid" type="submit" class="btn btn-success">¡Sign Up!</button>
+    </form>
+
+</div>
+
+<!-- <form class="form-style"
+				name="userForm" ng-controller="SubmitController as submit"
+				ng-submit="userForm.$valid && submit.sendInfo(userForm)" novalidate>
+
+					<div ng-show="submit.userCrated.failed" class="form-group alert alert-danger" id="notification_area_error_agent">
+	                	<a ng-click="submit.UpdateError()" class="close" data-dismiss="alert">×</a>
+		                <strong>Error!</strong> el correo ya existe.
+		            </div>
+
+				    <div class="form-group">
+				        <input type="text" ng-model="submit.user.first_name" id="nombre"
+				        name="nombre" placeholder="Nombre" class="form-control" data-error="Campo Requerido" required>
+				        <span ng-show="userForm.nombre.$dirty && userForm.nombre.$touched
+				        && !userForm.nombre.$valid && !userForm.nombre.$pristine">Por favor escribe tu nombre.</span>
+				    </div> -->
