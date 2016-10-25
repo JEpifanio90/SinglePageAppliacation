@@ -12,10 +12,11 @@
     function myInfoFunction(singUpService)
     {
         var myInfoScope = this;
-        myInfoScope.flag = false;
-        if(singUpService.email)
-        {
-            console.log("vacio?");
-        }
+        myInfoScope.name = singUpService.getFirstName();
+        myInfoScope.lastName = singUpService.getLastName();
+        myInfoScope.email = singUpService.getEmail();
+        myInfoScope.cellphone = singUpService.getCellphone();
+        myInfoScope.favoriteDish = singUpService.getFavoriteDish();
+        console.log(singUpService);
     }
 })();

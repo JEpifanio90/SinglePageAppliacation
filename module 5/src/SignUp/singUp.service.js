@@ -16,7 +16,6 @@
         signUpScope.email = '';
         signUpScope.cellphone = 0;
         signUpScope.favoriteDish = '';
-
         signUpScope.setFirstName = function (userName) {
             signUpScope.name = userName;
         };
@@ -35,6 +34,26 @@
 
         signUpScope.setFavoriteDish = function (userFavDish) {
             signUpScope.favoriteDish = userFavDish;
+        };
+
+        signUpScope.getFirstName = function () {
+            return signUpScope.name;
+        };
+
+        signUpScope.getLastName = function () {
+            return signUpScope.lastName;
+        };
+
+        signUpScope.getEmail = function () {
+            return signUpScope.email;
+        };
+
+        signUpScope.getCellphone = function () {
+            return signUpScope.cellphone;
+        };
+
+        signUpScope.getFavoriteDish = function () {
+            return signUpScope.favoriteDish;
         };
     }
 

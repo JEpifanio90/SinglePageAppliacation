@@ -18,11 +18,11 @@
         signScope.favDish = '';
 
         signScope.saveUsrData = function () {
-            singUpService.setName(signScope.name);
-            singUpService.setName(signScope.lastName);
-            singUpService.setName(signScope.cellphone);
-            singUpService.setName(signScope.email);
-            singUpService.setName(signScope.favDish);
+            singUpService.setFirstName(signScope.name);
+            singUpService.setLastName(signScope.lastName);
+            singUpService.setEmail(signScope.cellphone);
+            singUpService.setCellphone(signScope.email);
+            singUpService.setFavoriteDish(signScope.favDish);
         }
     }
 })();
