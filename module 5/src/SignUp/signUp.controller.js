@@ -1,28 +1,28 @@
 /**
  * Created by jose- on 23/10/2016.
  */
-(function() {
-    'use strict';
+(function () {
+    "use strict";
 
-    angular.module('restaurant')
-        .controller('SignUpCtrl', SignController);
+    angular.module('public')
+        .controller('SignUpController', SignUpController);
 
-    SignController.$inject = ['singUpService'];
-    function SignController(singUpService)
-    {
-        var signScope = this;
-        signScope.name = '';
-        signScope.lastName = '';
-        signScope.cellphone = '';
-        signScope.email = '';
-        signScope.favDish = '';
+    SignUpController.$inject = ['MenuService'];
+    function SignUpController(MenuService) {
+        var $signUpCtrl = this;
 
-        signScope.saveUsrData = function () {
-            singUpService.setFirstName(signScope.name);
-            singUpService.setLastName(signScope.lastName);
-            singUpService.setEmail(signScope.cellphone);
-            singUpService.setCellphone(signScope.email);
-            singUpService.setFavoriteDish(signScope.favDish);
-        }
+        $signUpCtrl.submit = function() {
+            MenuService.getFavoriteDish($signUpCtrl.user.favoriteDish).then(function (response) {
+                $signUpCtrl.user.favDish = response.data;
+                MenuService.setUserProfile($signUpCtrl.user);
+                $signUpCtrl.success = true;
+                $signUpCtrl.error = false;
+
+            }, function (response) {
+                $signUpCtrl.success = false;
+                $signUpCtrl.error = true;
+            });
+        };
     }
+
 })();

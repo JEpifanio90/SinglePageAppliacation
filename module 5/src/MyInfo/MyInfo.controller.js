@@ -2,21 +2,15 @@
  * Created by jose- on 24/10/2016.
  */
 (function () {
-    'use strict';
+    "use strict";
 
-    angular.module('restaurant')
-        .controller('myInfoCtrl', myInfoFunction);
+    angular.module('public')
+        .controller('MyInfoController', MyInfoController);
 
-    myInfoFunction.$inject = ['singUpService'];
-
-    function myInfoFunction(singUpService)
-    {
-        var myInfoScope = this;
-        myInfoScope.name = singUpService.getFirstName();
-        myInfoScope.lastName = singUpService.getLastName();
-        myInfoScope.email = singUpService.getEmail();
-        myInfoScope.cellphone = singUpService.getCellphone();
-        myInfoScope.favoriteDish = singUpService.getFavoriteDish();
-        console.log(singUpService);
+    MyInfoController.$inject = ['userInfo'];
+    function MyInfoController(userInfo) {
+        var $myInfoCtrl = this;
+        $myInfoCtrl.user = userInfo;
     }
+
 })();

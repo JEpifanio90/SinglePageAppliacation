@@ -1,60 +1,44 @@
-/**
- * Created by jose- on 23/10/2016.
- */
-(function() {
-    'use strict';
+(function () {
+    "use strict";
 
-    angular.module('restaurant')
-        .service('singUpService', signUpFunction);
+    angular.module('common')
+        .service('MenuService', MenuService);
 
 
-    function signUpFunction()
-    {
-        var signUpScope = this;
-        signUpScope.name = '';
-        signUpScope.lastName = '';
-        signUpScope.email = '';
-        signUpScope.cellphone = 0;
-        signUpScope.favoriteDish = '';
-        signUpScope.setFirstName = function (userName) {
-            signUpScope.name = userName;
+    MenuService.$inject = ['$http', 'ApiPath'];
+    function MenuService($http, ApiPath) {
+        var service = this;
+        service.user = {};
+
+        service.getCategories = function () {
+            return $http.get(ApiPath + '/categories.json').then(function (response) {
+                return response.data;
+            });
         };
 
-        signUpScope.setLastName = function (userLastName) {
-            signUpScope.lastName = userLastName;
+
+        service.getMenuItems = function (category) {
+            var config = {};
+            if (category) {
+                config.params = {'category': category};
+            }
+
+            return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
+                return response.data;
+            });
         };
 
-        signUpScope.setEmail = function (userEmail) {
-            signUpScope.email = userEmail;
+        service.setUserProfile = function (user) {
+            service.user = user;
         };
 
-        signUpScope.setCellphone = function (userCellphone) {
-            signUpScope.cellphone = userCellphone;
+        service.getUserProfile = function () {
+            return service.user;
         };
 
-        signUpScope.setFavoriteDish = function (userFavDish) {
-            signUpScope.favoriteDish = userFavDish;
+        service.getFavoriteDish = function (shortName) {
+            return $http.get(ApiPath +'/menu_items/'+ shortName +'.json');
         };
 
-        signUpScope.getFirstName = function () {
-            return signUpScope.name;
-        };
-
-        signUpScope.getLastName = function () {
-            return signUpScope.lastName;
-        };
-
-        signUpScope.getEmail = function () {
-            return signUpScope.email;
-        };
-
-        signUpScope.getCellphone = function () {
-            return signUpScope.cellphone;
-        };
-
-        signUpScope.getFavoriteDish = function () {
-            return signUpScope.favoriteDish;
-        };
     }
-
 })();
