@@ -16,14 +16,14 @@ function config($stateProvider, $urlRouterProvider) {
   var signUpState = {
     name: 'signUp',
     url: '/sing-up',
-    templateUrl: '/SignUp.html',
+    templateUrl: 'SignUp.html',
     controller: 'SignUpCtrl as signCtrl'
   };
 
     var myInfoState = {
         name: 'myInfo',
         url: '/my-info',
-        templateUrl: '/MyInfo.html',
+        templateUrl: 'MyInfo.html',
         controller: 'myInfoCtrl as myInfoCtrl'
     };
 
