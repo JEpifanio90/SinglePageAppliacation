@@ -7,29 +7,11 @@
 angular.module('restaurant', ['public'])
 .config(config);
 
-config.$inject = ['$stateProvider', '$urlRouterProvider'];
-function config($stateProvider, $urlRouterProvider) {
+config.$inject = ['$urlRouterProvider'];
+function config($urlRouterProvider) {
 
   // If user goes to a path that doesn't exist, redirect to public root
   $urlRouterProvider.otherwise('/');
-
-  var signUpState = {
-    name: 'signUp',
-    url: '/sing-up',
-    templateUrl: 'SignUp.html',
-    controller: 'SignUpCtrl as signCtrl'
-  };
-
-    var myInfoState = {
-        name: 'myInfo',
-        url: '/my-info',
-        templateUrl: 'MyInfo.html',
-        controller: 'myInfoCtrl as myInfoCtrl'
-    };
-
-  $stateProvider.state(signUpState);
-  $stateProvider.state(myInfoState);
-
 }
 
 })();
